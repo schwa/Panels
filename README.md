@@ -4,7 +4,9 @@ A SwiftUI library for dynamically registering and displaying panel views from an
 
 ## Why Panels?
 
-Panels enables any view in your hierarchy to dynamically register content that can be displayed elsewhere in your UI - whether in an inspector, sidebar, or custom container. Views can contribute their own panels that automatically appear and disappear as they enter and exit the scene. This enables modular, decoupled architectures where features can contribute UI to shared locations without central coordination. For example, with `.inspector()` you no longer need the parent view to know all inspector content upfront.
+Panels enables any view in your hierarchy to dynamically register content that can be displayed elsewhere in your UI - whether in an inspector, sidebar, or custom container. Views can contribute their own panels that automatically appear and disappear as they enter and exit the scene. 
+
+The key benefit: deeply nested views can contribute to inspectors or sidebars without threading state through the entire view hierarchy. Your detail view 10 levels deep can add its own inspector panel without the root view knowing it exists.
 
 ## Installation
 
@@ -54,6 +56,8 @@ struct ContentView: View {
     }
 }
 ```
+
+![Panels library in action showing settings and details panels in the inspector](<.documentation/Screenshot 2025-08-29 at 12.32.33.png>)
 
 ## Requirements
 
