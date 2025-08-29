@@ -14,7 +14,7 @@ Add Panels to your Swift package dependencies:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/[username]/Panels.git", branch: "main")
+    .package(url: "https://github.com/schwa/Panels.git", branch: "main")
 ]
 ```
 
