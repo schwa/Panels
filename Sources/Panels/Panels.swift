@@ -9,12 +9,12 @@ class PanelsModel {
 
 public struct Panel {
     public var id: String
-    public var lebel: String
+    public var label: String
     public var body: AnyView
 
     public init<V>(id: String, label: String, @ViewBuilder body: () -> V) where V: View {
         self.id = id
-        self.lebel = label
+        self.label = label
         self.body = AnyView(body())
     }
 }
@@ -24,7 +24,7 @@ extension Panel: Identifiable {
 
 extension Panel: Equatable {
     public static func == (lhs: Panel, rhs: Panel) -> Bool {
-        lhs.id == rhs.id && lhs.lebel == rhs.lebel
+        lhs.id == rhs.id && lhs.label == rhs.label
     }
 }
 
@@ -106,7 +106,7 @@ public extension Panels where Content == AnyView {
     .inspector(isPresented: .constant(true), content: {
         Form {
             Panels { panel in
-                DisclosureGroup(panel.lebel) {
+                DisclosureGroup(panel.label) {
                     panel.body
                 }
             }
