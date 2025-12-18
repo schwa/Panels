@@ -14,7 +14,7 @@ let package = Package(
         .library(
             name: "Panels",
             targets: ["Panels"]
-        ),
+        )
     ],
     dependencies: [
         .package(
@@ -26,7 +26,7 @@ let package = Package(
             name: "Panels",
             dependencies: [
                 .product(name: "Collections", package: "swift-collections")
-            ],
-        ),
+            ]
+        )
     ]
 )
