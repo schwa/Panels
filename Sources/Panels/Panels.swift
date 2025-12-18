@@ -103,6 +103,7 @@ public extension Panels where Content == AnyView {
         Text("Hello world")
             .panel(id: "3", label: "Panel #3") { Text("Panel #3")}
     }
+#if !os(visionOS)
     .inspector(isPresented: .constant(true), content: {
         Form {
             Panels { panel in
@@ -112,5 +113,24 @@ public extension Panels where Content == AnyView {
             }
         }
     })
+#else
+    .frame(width: 800, height: 600)
+    .padding()
+    .background(.thickMaterial, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+    // visionOS fallback: present the same content inline
+    .overlay(alignment: .trailing) {
+        VStack(alignment: .leading) {
+            Form {
+                Panels { panel in
+                    DisclosureGroup(panel.label) {
+                        panel.body
+                    }
+                }
+            }
+        }
+        .frame(maxWidth: 400)
+        .padding()
+    }
+#endif
     .panelsHost()
 }
